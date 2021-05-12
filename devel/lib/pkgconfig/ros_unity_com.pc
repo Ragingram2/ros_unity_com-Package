@@ -1,0 +1,8 @@
+prefix=/home/rramsey18/catkin_ws/devel
+
+Name: ros_unity_com
+Description: Description of ros_unity_com
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

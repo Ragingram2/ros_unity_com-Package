@@ -1,6 +1,7 @@
 <launch>
+	<node pkg="ros_unity_com" type="publisher" name="pos_pub"/>
 	<include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
 		<arg name="address" value="127.0.0.1"/>
 	</include>
-	<node pkg="ros_unity_com" type="publisher" name="pos_pub"/>
+	
 </launch>

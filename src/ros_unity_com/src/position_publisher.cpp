@@ -1,13 +1,19 @@
+#include "ros/console.h"
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include "geometry_msgs/Vector3.h"
+#include "std_msgs/UInt8MultiArray.h"
 
 #include <sstream>
 
 
 int count = 0;
 ros::Publisher pub;
+ros::Publisher imagePub;
+
 ros::Subscriber sub;
+ros::Subscriber imageSub;
+
 void sendNewPosition(geometry_msgs::Vector3::Ptr recived)
 {
 	geometry_msgs::Vector3 msg;
@@ -16,8 +22,14 @@ void sendNewPosition(geometry_msgs::Vector3::Ptr recived)
 	msg.x = rand()%100;
 	msg.y = rand()%100;
 	msg.z = rand()%100;
-	ROS_INFO("Sending: X:%f, Y:%f, Z:%f",msg.x,msg.y,msg.z);
+	//ROS_INFO("Sending: X:%f, Y:%f, Z:%f",msg.x,msg.y,msg.z);
 	pub.publish(msg);
+}
+
+void processBuffer(std_msgs::UInt8MultiArray::Ptr image)
+{
+	ROS_INFO("Buffer Size: %lu", sizeof(image->data));
+	imagePub.publish(image);
 }
 
 /**
@@ -63,10 +75,13 @@ int main(int argc, char **argv)
    */
   pub = n.advertise<geometry_msgs::Vector3>("get_position", 1000);
   sub = n.subscribe("send_position", 1000, sendNewPosition);
+  imagePub = n.advertise<std_msgs::UInt8MultiArray>("depth_buffer_return",1000);
+  imageSub = n.subscribe("depth_buffer0",1000,processBuffer);
+
 
   geometry_msgs::Vector3::Ptr message;
   sendNewPosition(message);
-  
+
   ros::spin();
   return 0;
 }
