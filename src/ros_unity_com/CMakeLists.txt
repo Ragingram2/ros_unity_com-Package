@@ -12,7 +12,9 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  sensor_msgs
   roslaunch
+  image_transport
 )
 roslaunch_add_file_check(launch)
 
@@ -138,6 +140,9 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(publisher src/position_publisher.cpp)
 target_link_libraries(publisher ${catkin_LIBRARIES})
+
+add_executable(pointcloud_viz src/pointcloud_vizualizer.cpp)
+target_link_libraries(pointcloud_viz ${catkin_LIBRARIES})
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the

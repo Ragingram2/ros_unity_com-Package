@@ -79,16 +79,26 @@ publisher_EXTERNAL_OBJECTS =
 
 /home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: ros_unity_com/CMakeFiles/publisher.dir/src/position_publisher.cpp.o
 /home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: ros_unity_com/CMakeFiles/publisher.dir/build.make
+/home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /opt/ros/noetic/lib/libimage_transport.so
+/home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /opt/ros/noetic/lib/libmessage_filters.so
+/home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /opt/ros/noetic/lib/libclass_loader.so
+/home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /usr/lib/x86_64-linux-gnu/libPocoFoundation.so
+/home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /usr/lib/x86_64-linux-gnu/libdl.so
 /home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /opt/ros/noetic/lib/libroscpp.so
 /home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /usr/lib/x86_64-linux-gnu/libpthread.so
 /home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0
-/home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0
 /home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /opt/ros/noetic/lib/librosconsole.so
 /home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /opt/ros/noetic/lib/librosconsole_log4cxx.so
 /home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /opt/ros/noetic/lib/librosconsole_backend_interface.so
 /home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
 /home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0
 /home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /opt/ros/noetic/lib/libxmlrpcpp.so
+/home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /opt/ros/noetic/lib/libroslib.so
+/home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /opt/ros/noetic/lib/librospack.so
+/home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /usr/lib/x86_64-linux-gnu/libpython3.8.so
+/home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0
+/home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0
+/home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
 /home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /opt/ros/noetic/lib/libroscpp_serialization.so
 /home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /opt/ros/noetic/lib/librostime.so
 /home/rramsey18/catkin_ws/devel/lib/ros_unity_com/publisher: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
