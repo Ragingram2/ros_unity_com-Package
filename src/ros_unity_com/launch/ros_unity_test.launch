@@ -3,5 +3,5 @@
 	<include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
 		<arg name="address" value="127.0.0.1"/>
 	</include>
-	
+	<include file="$(find ros_unity_com)/launch/streams_test.launch"></include>
 </launch>

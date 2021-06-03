@@ -20,6 +20,10 @@ sensor_msgs::PointCloud cloud_msg;
 geometry_msgs::Point32 cameraPos;
 geometry_msgs::Quaternion cameraDir;
 
+std::string color_path;
+std::string depth_path;
+std::string pointcloud_topic;
+
 std::vector<geometry_msgs::Point32> calculateDepthPoints(sensor_msgs::ImageConstPtr depthMsg)
 {
   std::vector<geometry_msgs::Point32> points;
@@ -56,6 +60,7 @@ void publishPointCloud()
   gotColor = false;
   gotDepth = false;
   gotOdom = false;
+  cloud_msg.header.frame_id = "map";
   pointcloudPub.publish(cloud_msg);
 }
 
@@ -70,18 +75,26 @@ void depth_frame_recived(const sensor_msgs::ImageConstPtr& msg)
 {
   gotDepth = true;
   std::cout << "I recieved depth frame"<< std::endl;
-  while(!gotOdom){}
-  cloud_msg.points = calculateDepthPoints(msg);
+  if(gotOdom)
+  {
+    cloud_msg.points = calculateDepthPoints(msg);
+  }
 }
 
 void odometry_recieved(const geometry_msgs::Pose::ConstPtr& msg)
 {
   gotOdom = true;
   std::cout << "I recieved camera odometry"<< std::endl;
+  cameraPos.x = msg->position.x;
+  cameraPos.y = msg->position.y;
+  cameraPos.z = msg->position.z;
+
+  cameraDir.x = msg->orientation.x;
+  cameraDir.y = msg->orientation.y;
+  cameraDir.z = msg->orientation.z;
+  cameraDir.w = msg->orientation.w;
 }
 
-std::string color_path;
-std::string depth_path;
 
 int main(int argc, char **argv)
 {
@@ -92,13 +105,22 @@ int main(int argc, char **argv)
   std::cout << "Node Started" << std::endl;
   n.getParam("color_path",color_path);
   n.getParam("depth_path",depth_path);
+  n.getParam("pointcloud_topic",pointcloud_topic);
 
-  pointcloudPub = n.advertise<sensor_msgs::PointCloud>("/pointcloud0",1);
+  pointcloudPub = n.advertise<sensor_msgs::PointCloud>(std::string("/"+pointcloud_topic).c_str(),1000);
 
+  ros::Subscriber cameraOdomSub = n.subscribe("/camera_odometry",100,odometry_recieved);
   image_transport::Subscriber colorSub = it.subscribe(std::string("/"+color_path+"/image_raw").c_str(), 1000, color_frame_recived);
   image_transport::Subscriber depthSub = it.subscribe(std::string("/"+depth_path + "/image_raw").c_str(), 1000, depth_frame_recived);
-  ros::Subscriber cameraOdomSub = n.subscribe("/camera_odometry",1,odometry_recieved);
-
-  ros::spin();
+  ros::Rate r(1);
+  while (ros::ok())
+  {
+    if(gotOdom && gotDepth && gotColor)
+    {
+      publishPointCloud();
+    }
+    ros::spinOnce();
+    r.sleep();
+  }
   return 0;
 }

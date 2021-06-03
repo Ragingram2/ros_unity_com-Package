@@ -12,7 +12,7 @@
 	  	<!-- throttling the querying of frames to -->
 	  	<arg name="fps" value="20" />
 	  	<!-- setting frame_id -->
-	  	<arg name="frame_id" value="color_frame" />
+	  	<arg name="frame_id" value="pointcloud_frame" />
 	  	<!-- camera info loading, take care as it needs the "file:///" at the start , e.g.:
 	  	"file:///$(find your_camera_package)/config/your_camera.yaml" -->
 	  	<arg name="camera_info_url" value="file:///$(find ros_unity_com)/config/color0.yaml" />
@@ -35,7 +35,7 @@
 	  	<!-- throttling the querying of frames to -->
 	  	<arg name="fps" value="20" />
 	  	<!-- setting frame_id -->
-	  	<arg name="frame_id" value="color_frame" />
+	  	<arg name="frame_id" value="pointcloud_frame" />
 	  	<!-- camera info loading, take care as it needs the "file:///" at the start , e.g.:
 	  	"file:///$(find your_camera_package)/config/your_camera.yaml" -->
 	  	<arg name="camera_info_url" value="file:///$(find ros_unity_com)/config/color1.yaml" />
@@ -58,7 +58,7 @@
 	  	<!-- throttling the querying of frames to -->
 	  	<arg name="fps" value="20" />
 	  	<!-- setting frame_id -->
-	  	<arg name="frame_id" value="color_frame" />
+	  	<arg name="frame_id" value="pointcloud_frame" />
 	  	<!-- camera info loading, take care as it needs the "file:///" at the start , e.g.:
 	  	"file:///$(find your_camera_package)/config/your_camera.yaml" -->
 	  	<arg name="camera_info_url" value="file:///$(find ros_unity_com)/config/color2.yaml" />
@@ -81,7 +81,7 @@
 	  	<!-- throttling the querying of frames to -->
 	  	<arg name="fps" value="20" />
 	  	<!-- setting frame_id -->
-	  	<arg name="frame_id" value="color_frame" />
+	  	<arg name="frame_id" value="pointcloud_frame" />
 	  	<!-- camera info loading, take care as it needs the "file:///" at the start , e.g.:
 	  	"file:///$(find your_camera_package)/config/your_camera.yaml" -->
 	  	<arg name="camera_info_url" value="file:///$(find ros_unity_com)/config/color3.yaml" />
@@ -93,7 +93,7 @@
 	  	<arg name="visualize" value="false" />
    </include>
 
-	<!-- launch color stream -->
+	<!-- launch depth stream -->
 	<include file="$(find video_stream_opencv)/launch/camera.launch" >
    		<!-- node name and ros graph name -->
 	  	<arg name="camera_name" value="depth0" />
@@ -106,7 +106,7 @@
 	  	<!-- throttling the querying of frames to -->
 	  	<arg name="fps" value="20" />
 	  	<!-- setting frame_id -->
-	  	<arg name="frame_id" value="depth_frame" />
+	  	<arg name="frame_id" value="pointcloud_frame" />
 	  	<!-- camera info loading, take care as it needs the "file:///" at the start , e.g.:
 	  	"file:///$(find your_camera_package)/config/your_camera.yaml" -->
 	  	<arg name="camera_info_url" value="file:///$(find ros_unity_com)/config/depth0.yaml" />
@@ -129,7 +129,7 @@
 	  	<!-- throttling the querying of frames to -->
 	  	<arg name="fps" value="20" />
 	  	<!-- setting frame_id -->
-	  	<arg name="frame_id" value="depth_frame" />
+	  	<arg name="frame_id" value="pointcloud_frame" />
 	  	<!-- camera info loading, take care as it needs the "file:///" at the start , e.g.:
 	  	"file:///$(find your_camera_package)/config/your_camera.yaml" -->
 	  	<arg name="camera_info_url" value="file:///$(find ros_unity_com)/config/depth1.yaml" />
@@ -152,7 +152,7 @@
 	  	<!-- throttling the querying of frames to -->
 	  	<arg name="fps" value="20" />
 	  	<!-- setting frame_id -->
-	  	<arg name="frame_id" value="depth_frame" />
+	  	<arg name="frame_id" value="pointcloud_frame" />
 	  	<!-- camera info loading, take care as it needs the "file:///" at the start , e.g.:
 	  	"file:///$(find your_camera_package)/config/your_camera.yaml" -->
 	  	<arg name="camera_info_url" value="file:///$(find ros_unity_com)/config/depth2.yaml" />
@@ -175,7 +175,7 @@
 	  	<!-- throttling the querying of frames to -->
 	  	<arg name="fps" value="20" />
 	  	<!-- setting frame_id -->
-	  	<arg name="frame_id" value="depth_frame" />
+	  	<arg name="frame_id" value="pointcloud_frame" />
 	  	<!-- camera info loading, take care as it needs the "file:///" at the start , e.g.:
 	  	"file:///$(find your_camera_package)/config/your_camera.yaml" -->
 	  	<arg name="camera_info_url" value="file:///$(find ros_unity_com)/config/depth3.yaml" />
