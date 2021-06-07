@@ -18,10 +18,10 @@ void sendNewPosition(geometry_msgs::Vector3::Ptr recived)
 	geometry_msgs::Vector3 msg;
 	count++;
 	srand(count);
-	msg.x = rand()%17;
-	msg.y = rand()%17;
-	msg.z = rand()%17;
-	//ROS_INFO("Sending: X:%f, Y:%f, Z:%f",msg.x,msg.y,msg.z);
+	msg.x = rand()%radius;
+	msg.y = rand()%radius;
+	msg.z = rand()%radius;
+  //publishes the random pos message
 	pub.publish(msg);
 }
 
@@ -30,9 +30,13 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "position_publisher");
   ros::NodeHandle n; //("~"); Never ever add this! This break everything!
 
+  //Creates a publisher and advertises(registers) the topic
   pub = n.advertise<geometry_msgs::Vector3>("get_position", 1000);
+
+  //Creates a subscriber to do a callback whenever the 'send_position' topic is published
   sub = n.subscribe("send_position", 1000, sendNewPosition);
 
+  //Sends the first position message at startup
   geometry_msgs::Vector3::Ptr message;
   sendNewPosition(message);
 
