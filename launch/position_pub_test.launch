@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="ros_unity_com" type="publisher" name="pos_pub"/>
+</launch>
