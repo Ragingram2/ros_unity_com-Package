@@ -2,7 +2,7 @@
 <package format="2">
   <name>ros_unity_com</name>
   <version>1.0.0</version>
-  <description>The ros_unity_com package</description>
+  <description>The ros_unity_com package. Allows us to communicate with Unity from ROS</description>
   <maintainer email="rowanramsey18@gmail.com">Rowan Ramsey</maintainer>
   <license>MIT</license>
   <buildtool_depend>catkin</buildtool_depend>
